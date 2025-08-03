@@ -11,7 +11,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-purple-900 via-pink-800 to-purple-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-wedding-primary via-wedding-dusty to-wedding-primary text-white relative overflow-hidden">
       {/* Floating Hearts Background */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -48,14 +48,14 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h2 className="font-elegant text-6xl md:text-8xl text-transparent bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text mb-4">
-              Sarah & Michael
+            <h2 className="font-elegant text-6xl md:text-8xl text-transparent bg-gradient-to-r from-wedding-secondary to-wedding-accent bg-clip-text mb-4">
+              Ipsita & Jayant
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 to-purple-400 mx-auto mb-6"></div>
-            <p className="font-script text-2xl md:text-3xl text-pink-200 mb-4">
-              December 15, 2024
+            <div className="w-32 h-1 bg-gradient-to-r from-wedding-accent to-wedding-secondary mx-auto mb-6"></div>
+            <p className="font-script text-2xl md:text-3xl text-wedding-secondary mb-4">
+              November 23, 2025
             </p>
-            <p className="text-lg text-purple-200">
+            <p className="text-lg text-wedding-blush">
               Thank you for being part of our love story
             </p>
           </motion.div>
@@ -68,8 +68,8 @@ const Footer = () => {
             className="mb-8"
           >
             <div className="inline-block bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20">
-              <span className="text-2xl md:text-3xl font-script text-yellow-300">
-                #SarahMichaelForever
+              <span className="text-2xl md:text-3xl font-script text-wedding-accent">
+                #IpsitaJayantForever
               </span>
               <motion.div
                 className="inline-block ml-2"
@@ -124,21 +124,21 @@ const Footer = () => {
             className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12"
           >
             <div className="text-center">
-              <h3 className="font-serif text-lg text-pink-200 mb-2">
+              <h3 className="font-serif text-lg text-wedding-secondary mb-2">
                 For Questions
               </h3>
-              <p className="text-purple-200">Sarah: +1 (234) 567-8901</p>
-              <p className="text-purple-200">Michael: +1 (234) 567-8902</p>
+              <p className="text-wedding-blush">Ipsita: +1 (234) 567-8901</p>
+              <p className="text-wedding-blush">Jayant: +1 (234) 567-8902</p>
             </div>
             <div className="text-center">
-              <h3 className="font-serif text-lg text-pink-200 mb-2">
+              <h3 className="font-serif text-lg text-wedding-secondary mb-2">
                 Email Us
               </h3>
               <a
-                href="mailto:sarah.michael@wedding.com"
-                className="text-purple-200 hover:text-pink-200 transition-colors"
+                href="mailto:ipsita.jayant@wedding.com"
+                className="text-wedding-blush hover:text-wedding-secondary transition-colors"
               >
-                sarah.michael@wedding.com
+                ipsita.jayant@wedding.com
               </a>
             </div>
           </motion.div>
@@ -152,9 +152,9 @@ const Footer = () => {
           className="border-t border-white/20 pt-8 text-center"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-purple-200 text-sm">
-              © 2024 Sarah & Michael Wedding. Made with{" "}
-              <Heart className="inline w-4 h-4 text-pink-400 fill-current" />{" "}
+            <p className="text-wedding-blush text-sm">
+              © 2025 Ipsita & Jayant Wedding. Made with{" "}
+              <Heart className="inline w-4 h-4 text-wedding-accent fill-current" />{" "}
               for our special day.
             </p>
             <div className="flex gap-6 text-sm text-purple-200">
@@ -173,7 +173,7 @@ const Footer = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-wedding-accent via-wedding-secondary to-wedding-accent"></div>
     </footer>
   );
 };

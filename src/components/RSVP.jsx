@@ -25,13 +25,13 @@ const RSVP = () => {
     },
     {
       id: 2,
-      name: "Sarah's Mom",
+      name: "Ipsita's Mom",
       message: "So proud of you both! Love you! ❤️",
       time: "5 hours ago",
     },
     {
       id: 3,
-      name: "Mike's College Friends",
+      name: "Jayant's College Friends",
       message: "Finally! We've been waiting for this day!",
       time: "1 day ago",
     },

@@ -24,21 +24,21 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 flex items-center justify-center">
+      <div className="fixed inset-0 bg-gradient-to-br from-wedding-ivory via-wedding-secondary to-wedding-blush flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center"
         >
           <motion.h1
-            className="font-elegant text-6xl md:text-8xl text-yellow-500 mb-4"
+            className="font-elegant text-6xl md:text-8xl text-wedding-primary mb-4"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            S & M
+            I & J
           </motion.h1>
           <motion.div
-            className="w-16 h-1 bg-yellow-500 mx-auto"
+            className="w-16 h-1 bg-wedding-accent mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 64 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-orange-100 via-pink-100 to-purple-100 min-h-screen">
+    <div className="relative bg-gradient-to-br from-wedding-ivory via-wedding-secondary to-wedding-blush min-h-screen">
       <ScrollProgress />
       <AudioPlayer />
       <FloatingElements />

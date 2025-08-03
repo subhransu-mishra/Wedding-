@@ -9,36 +9,30 @@ const WeddingTimeline = () => {
   const milestones = [
     {
       title: "Engagement",
-      date: "Dec 2023",
+      date: "May 2023",
       description: "The moment we said yes to forever",
       icon: Gem,
       color: "text-pink-500",
     },
-    {
-      title: "Save the Dates",
-      date: "Mar 2024",
-      description: "Spreading the news to our loved ones",
-      icon: Calendar,
-      color: "text-purple-500",
-    },
+    
     {
       title: "Pre-Wedding Shoot",
-      date: "Oct 2024",
+      date: "Oct 2025",
       description: "Capturing our love story in frames",
       icon: Camera,
       color: "text-blue-500",
     },
     {
       title: "Wedding Day",
-      date: "Dec 15, 2024",
+      date: "Nov 23, 2025",
       description: "The big day - becoming one",
       icon: Heart,
       color: "text-red-500",
     },
     {
-      title: "Honeymoon",
-      date: "Dec 2024",
-      description: "Our first adventure as married couple",
+      title: "Reception",
+      date: "25 Nov 2025",
+      description: "Reception celebration with family and friends",
       icon: Plane,
       color: "text-green-500",
     },
