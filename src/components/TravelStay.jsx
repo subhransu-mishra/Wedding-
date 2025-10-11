@@ -1,10 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MapPin, Plane, Car, Hotel, Phone, Star } from "lucide-react";
+import { toast } from "react-toastify";
+import {
+  MapPin,
+  Plane,
+  Car,
+  Hotel,
+  Phone,
+  Star,
+  Train,
+  Bus,
+  Navigation,
+} from "lucide-react";
 
 const TravelStay = () => {
-  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   const hotels = [
     {
@@ -40,26 +51,37 @@ const TravelStay = () => {
 
   const transportation = [
     {
-      type: "Airport",
-      name: "Mumbai International Airport",
-      distance: "45 mins by car",
-      options: ["Taxi", "Uber/Ola", "Airport Shuttle"],
-      icon: Plane,
-    },
-    {
       type: "Train Station",
-      name: "Mumbai Central Station",
-      distance: "20 mins by car",
-      options: ["Taxi", "Local Bus", "Metro"],
-      icon: Car,
+      name: "Dhenkanal Railway Station",
+      distance: "Starting point",
+      options: ["Walk to Bus Stand", "Take Auto Rickshaw"],
+      icon: Train,
     },
     {
-      type: "Local Transport",
-      name: "Around the City",
-      distance: "Convenient access",
-      options: ["Local Taxi", "Auto Rickshaw", "Metro"],
-      icon: MapPin,
+      type: "Bus Stand",
+      name: "Dhenkanal Bus Stand",
+      distance: "2 mins walk from station",
+      options: ["Bus to Kamakhya", "Local Transport"],
+      icon: Bus,
     },
+    {
+      type: "Landmark",
+      name: "Sogar Chowk",
+      distance: "Main intersection",
+      options: ["Look for Billboard", "Turn Right"],
+      icon: Navigation,
+    },
+  ];
+
+  const routeInstructions = [
+    "Start from Dhenkanal Railway Station",
+    "Walk to Dhenkanal Bus Stand (2 mins)",
+    "Take a bus going to Kamakhya",
+    "Get down at Sogar Chowk",
+    "Look for Mahatma Gandhi Ausodhiya Aranya SOGAR billboard",
+    "Turn right from the billboard",
+    "Continue straight for 500 meters",
+    "You will reach the wedding venue",
   ];
 
   return (
@@ -68,101 +90,10 @@ const TravelStay = () => {
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-elegant text-6xl md:text-7xl text-yellow-500 mb-4">
-            Travel & Stay
-          </h2>
-          <div className="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-          <p className="font-serif text-xl text-gray-600 max-w-3xl mx-auto">
-            Make your journey comfortable with our recommended accommodations
-            and travel information.
-          </p>
-        </motion.div>
-
-        {/* Hotel Recommendations */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
-        >
-          <h3 className="font-script text-4xl text-purple-600 text-center mb-12">
-            Recommended Hotels
-          </h3>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {hotels.map((hotel, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
-                className="bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={hotel.image}
-                    alt={hotel.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span className="text-sm font-medium">{hotel.rating}</span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h4 className="font-serif text-xl text-gray-800 mb-2">
-                    {hotel.name}
-                  </h4>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-purple-600 font-medium">
-                      {hotel.price}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {hotel.distance}
-                    </span>
-                  </div>
-
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      {hotel.amenities.map((amenity, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full"
-                        >
-                          {amenity}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <button className="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-full text-sm font-medium transition-colors">
-                      Book Now
-                    </button>
-                    <a
-                      href={`tel:${hotel.phone}`}
-                      className="p-2 border border-purple-300 hover:bg-purple-50 rounded-full transition-colors"
-                    >
-                      <Phone className="w-4 h-4 text-purple-600" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Transportation */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-16"
         >
@@ -177,7 +108,7 @@ const TravelStay = () => {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
                   className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow"
                 >
@@ -211,35 +142,102 @@ const TravelStay = () => {
           </div>
         </motion.div>
 
-        {/* Map Section */}
+        {/* Route Map Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
         >
           <h3 className="font-script text-4xl text-purple-600 text-center mb-8">
-            Venue Location
+            Route to Wedding Venue
           </h3>
 
-          <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center mb-6">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-500">Interactive Map</p>
-              <p className="text-sm text-gray-400">
-                Grand Palace Resort, Mumbai
-              </p>
+          {/* Map Image */}
+          <div className="relative bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl p-2 sm:p-4 mb-8 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full flex justify-center"
+            >
+              {/* Map Image */}
+              <img
+                src="/map.jpeg"
+                alt="Route Map to Wedding Venue"
+                className="w-full h-auto rounded-xl shadow-2xl object-contain"
+                style={{ minHeight: "400px", maxHeight: "700px" }}
+              />
+            </motion.div>
+          </div>
+
+          {/* Route Instructions */}
+          <div className="mb-8">
+            <h4 className="font-serif text-2xl text-gray-800 mb-6 text-center">
+              Step-by-Step Directions
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              {routeInstructions.map((instruction, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                  className="flex items-start gap-3 p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-colors"
+                >
+                  <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <p className="text-gray-700 font-medium">{instruction}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-gray-600 mb-4">
-              <strong>Address:</strong> 789 Royal Road, Mumbai, Maharashtra
-              400001
-            </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-medium transition-colors">
-              Get Directions
-            </button>
+          {/* Action Buttons */}
+          <div className="text-center space-y-4">
+            <div className="text-gray-700 mb-4 space-y-2">
+              <p className="font-bold text-lg">Final Destination:</p>
+              <p className="text-base">Sogar Park, Dhenkanal</p>
+              <p className="text-sm">
+                QH65+89, Rainarasinghpur sasan, Kamagarapatana, Odisha 759026
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => {
+                  // Open Google Maps with the exact location
+                  window.open(
+                    "https://maps.app.goo.gl/2aTKUBt9P6Qjx27t7",
+                    "_blank"
+                  );
+                }}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+              >
+                <Navigation className="w-5 h-5" />
+                Get Directions
+              </button>
+              <button
+                onClick={() => {
+                  // Copy the address to clipboard
+                  const address =
+                    "Sogar Park, Dhenkanal\nQH65+89, Rainarasinghpur sasan, Kamagarapatana, Odisha 759026";
+                  navigator.clipboard.writeText(address);
+                  toast.success("Address copied to clipboard!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                  });
+                }}
+                className="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-full font-medium transition-colors flex items-center justify-center gap-2"
+              >
+                <MapPin className="w-5 h-5" />
+                Copy Address
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -248,3 +246,4 @@ const TravelStay = () => {
 };
 
 export default TravelStay;
+  

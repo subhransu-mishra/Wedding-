@@ -12,8 +12,8 @@ const WeddingEvents = () => {
       id: 1,
       title: "Haldi Ceremony",
       date: "November 22, 2025",
-      time: "10:00 AM - 12:00 PM",
-      venue: "Ipsita's Family Home",
+      time: "09:00 AM - 12:00 PM",
+      venue: "Sogar Park, Dhenkanal",
       address: "Sogar Park, Dhenkanal",
       description:
         "A traditional ceremony where turmeric paste is applied for blessing and purification.",

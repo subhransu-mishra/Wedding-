@@ -4,10 +4,18 @@ import { Heart, Instagram, Facebook, Twitter, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:sarah.michael@wedding.com", label: "Email" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/ipsita__mishra/",
+      label: "Instagram",
+    },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/ipsita.mishra.395891",
+      label: "Facebook",
+    },
+
+    { icon: Mail, href: "mailto:mipsita955@gmail.com", label: "Email" },
   ];
 
   return (
@@ -127,18 +135,25 @@ const Footer = () => {
               <h3 className="font-serif text-lg text-wedding-secondary mb-2">
                 For Questions
               </h3>
-              <p className="text-wedding-blush">Ipsita: +1 (234) 567-8901</p>
-              <p className="text-wedding-blush">Jayant: +1 (234) 567-8902</p>
+              <p className="text-wedding-blush">Ipsita: +91 8248719892</p>
+              <p className="text-wedding-blush">Jayant: +91 7737181699</p>
+              <ul>
+                Others:
+                <li className="text-wedding-blush">+91 7008207704 </li>
+                <li className="text-wedding-blush">+91 7749054590 </li>
+                <li className="text-wedding-blush">+91 7681021260 </li>
+                <li className="text-wedding-blush">+91 9437729690 </li>
+              </ul>
             </div>
             <div className="text-center">
               <h3 className="font-serif text-lg text-wedding-secondary mb-2">
                 Email Us
               </h3>
               <a
-                href="mailto:ipsita.jayant@wedding.com"
+                href="mailto:mipsita955@gmail.com"
                 className="text-wedding-blush hover:text-wedding-secondary transition-colors"
               >
-                ipsita.jayant@wedding.com
+                mipsita955@gmail.com
               </a>
             </div>
           </motion.div>
@@ -169,6 +184,42 @@ const Footer = () => {
               </a>
             </div>
           </div>
+
+          {/* Developer Credit */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="mt-8 pt-0 "
+          >
+            <div className="bg-black/70 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="flex items-center justify-center gap-2 text-base font-medium">
+                <span className="text-gray-200">Developed by</span>
+                <a
+                  href="https://subhransu.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white underline decoration-2 underline-offset-2 hover:text-red-400 hover:decoration-red-400 transition-all duration-300 flex items-center gap-2 font-semibold"
+                >
+                  Subhransu
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

@@ -8,30 +8,31 @@ const CoupleIntroduction = () => {
 
   const timeline = [
     {
-      title: "First Meeting",
-      date: "March 2019",
-      description: "A coffee shop encounter that changed everything",
+      title: "Engagement",
+      date: "May 09, 2025",
+      description: "Engagement Ceremony",
       icon: Heart,
       color: "pink-500",
     },
+    
     {
-      title: "First Date",
-      date: "April 2019",
-      description: "A romantic dinner under the stars",
-      icon: Calendar,
-      color: "purple-500",
-    },
-    {
-      title: "Travel Together",
-      date: "August 2020",
-      description: "Our first adventure to the mountains",
+      title: "Haldi & Mehendi",
+      date: "November 22, 2025",
+      description: "Haldi & Mehendi",
       icon: MapPin,
       color: "orange-500",
     },
     {
-      title: "The Proposal",
-      date: "December 2023",
-      description: "He popped the question at sunset beach",
+      title: "Wedding Ceremony",
+      date: "November 23, 2025",
+      description: "Wedding Ceremony",
+      icon: Calendar,
+      color: "purple-500",
+    },
+    {
+      title: "Reception",
+      date: "November 26, 2025",
+      description: "Reception",
       icon: Gem,
       color: "yellow-500",
     },
@@ -80,13 +81,11 @@ const CoupleIntroduction = () => {
                   Ipsita
                 </h3>
                 <p className="font-serif text-lg text-wedding-dusty text-center leading-relaxed">
-                  A passionate artist and dreamer who believes in fairy tales.
-                  Ipsita brings joy and creativity to everything she touches,
-                  making the world more beautiful one smile at a time.
+                  
                 </p>
                 <div className="mt-6 text-center">
                   <span className="inline-block px-4 py-2 bg-wedding-blush/20 rounded-full text-wedding-dusty font-medium">
-                    The Dreamer ✨
+                    Bride
                   </span>
                 </div>
               </div>
@@ -110,13 +109,11 @@ const CoupleIntroduction = () => {
                   Jayant
                 </h3>
                 <p className="font-serif text-lg text-wedding-dusty text-center leading-relaxed">
-                  An adventurous soul with a heart of gold. Jayant's warmth and
-                  humor light up every room, and his love for Ipsita knows no
-                  bounds. Together, they're unstoppable.
+                  
                 </p>
                 <div className="mt-6 text-center">
                   <span className="inline-block px-4 py-2 bg-wedding-accent/20 rounded-full text-wedding-dusty font-medium">
-                    The Adventurer 🌟
+                   Groom
                   </span>
                 </div>
               </div>

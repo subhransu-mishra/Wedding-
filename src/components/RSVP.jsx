@@ -19,19 +19,19 @@ const RSVP = () => {
   const [wishes, setWishes] = useState([
     {
       id: 1,
-      name: "John & Jane",
+      name: "Ipsita's Family",
       message: "Can't wait to celebrate with you both!",
       time: "2 hours ago",
     },
     {
       id: 2,
-      name: "Ipsita's Mom",
-      message: "So proud of you both! Love you! ❤️",
+      name: "Jayant's Family",
+      message: "Love you both! ❤️",
       time: "5 hours ago",
     },
     {
       id: 3,
-      name: "Jayant's College Friends",
+      name: "Ipsita & Jayant's Friends",
       message: "Finally! We've been waiting for this day!",
       time: "1 day ago",
     },

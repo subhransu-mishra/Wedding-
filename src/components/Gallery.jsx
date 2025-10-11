@@ -1,81 +1,161 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { X, Play, Heart } from "lucide-react";
+import { X, Play, Heart, ChevronDown, ExternalLink } from "lucide-react";
 import Masonry from "react-masonry-css";
 
 const Gallery = () => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [filter, setFilter] = useState("all");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  // Sample gallery items - replace with actual photos
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Gallery items using your actual images
   const galleryItems = [
     {
       id: 1,
       type: "image",
-      src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400",
+      src: "/img11.JPG",
       category: "engagement",
       alt: "Engagement Photo 1",
     },
     {
       id: 2,
       type: "image",
-      src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400",
-      category: "prewedding",
-      alt: "Pre-wedding Photo 1",
-    },
-    {
-      id: 3,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400",
+      src: "/img10.JPG",
       category: "engagement",
       alt: "Engagement Photo 2",
     },
     {
-      id: 4,
-      type: "video",
-      src: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-      category: "prewedding",
-      alt: "Pre-wedding Video",
-      thumbnail:
-        "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400",
-    },
-    {
-      id: 5,
+      id: 3,
       type: "image",
-      src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400",
-      category: "couple",
-      alt: "Couple Photo 1",
-    },
-    {
-      id: 6,
-      type: "image",
-      src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400",
+      src: "/img6.JPG",
       category: "engagement",
       alt: "Engagement Photo 3",
     },
     {
-      id: 7,
+      id: 4,
       type: "image",
-      src: "https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=400",
+      src: "/img5.JPG",
+      category: "engagement",
+      alt: "Engagement Photo 4",
+    },
+    {
+      id: 11,
+      type: "image",
+      src: "/img15.JPG",
+      category: "engagement",
+      alt: "Engagement Photo 4",
+    },
+
+    {
+      id: 13,
+      type: "image",
+      src: "/img17.JPG",
+      category: "engagement",
+      alt: "Engagement Photo 4",
+    },
+    {
+      id: 13,
+      type: "image",
+      src: "/img18.JPG",
+      category: "engagement",
+      alt: "Engagement Photo 4",
+    },
+    {
+      id: 12,
+      type: "image",
+      src: "/img14.JPG",
+      category: "engagement",
+      alt: "Engagement Photo 4",
+    },
+    {
+      id: 5,
+      type: "image",
+      src: "/img7.JPG",
+      category: "couple",
+      alt: "Couple Photo 1",
+    },
+
+    {
+      id: 6,
+      type: "image",
+      src: "/img2.JPG",
       category: "couple",
       alt: "Couple Photo 2",
     },
     {
+      id: 7,
+      type: "image",
+      src: "/img3.JPG",
+      category: "couple",
+      alt: "Couple Photo 3",
+    },
+    {
       id: 8,
       type: "image",
-      src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400",
-      category: "prewedding",
-      alt: "Pre-wedding Photo 2",
+      src: "/img8.JPG",
+      category: "couple",
+      alt: "Couple Photo 4",
+    },
+    {
+      id: 9,
+      type: "image",
+      src: "/img1.JPG",
+      category: "couple",
+      alt: "Couple Photo 5",
     },
   ];
 
   const categories = [
     { id: "all", label: "All Photos" },
     { id: "engagement", label: "Engagement" },
-    { id: "prewedding", label: "Pre-Wedding" },
     { id: "couple", label: "Couple Shots" },
+  ];
+
+  // Drive links for different ceremonies
+  const driveLinks = [
+    {
+      id: "ring-ceremony",
+      label: "Ring Ceremony",
+      url: "https://drive.google.com/drive/u/0/mobile/folders/1Jd2SOIXw0gP9CalKsrmWJnOLwaF2Tce2", // Replace with actual link
+    },
+    {
+      id: "prewedding",
+      label: "Pre Wedding",
+      url: "", // Replace with actual link
+    },
+    {
+      id: "wedding",
+      label: "Wedding",
+      url: "", // Replace with actual link
+    },
+    {
+      id: "haldi-mehndi",
+      label: "Haldi & Mehndi",
+      url: "", // Replace with actual link
+    },
+
+    {
+      id: "reception",
+      label: "Reception",
+      url: "", // Replace with actual link
+    },
   ];
 
   const filteredItems =
@@ -186,6 +266,60 @@ const Gallery = () => {
               </motion.div>
             ))}
           </Masonry>
+        </motion.div>
+
+        {/* View All Images Button with Dropdown */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <div className="relative inline-block" ref={dropdownRef}>
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl"
+            >
+              <span>View All Images</span>
+              <ChevronDown
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Dropdown Menu */}
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50"
+                >
+                  {driveLinks.map((link, index) => (
+                    <motion.a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2, delay: index * 0.05 }}
+                      className="flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors duration-200 group"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      <span className="font-medium text-gray-800 group-hover:text-yellow-600 transition-colors">
+                        {link.label}
+                      </span>
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-yellow-600 transition-colors" />
+                    </motion.a>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </motion.div>
 
         {/* Lightbox Modal */}

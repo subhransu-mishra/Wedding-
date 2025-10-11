@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import HeroSection from "./components/HeroSection";
 import CoupleIntroduction from "./components/CoupleIntroduction";
 import WeddingEvents from "./components/WeddingEvents";
@@ -58,12 +60,26 @@ function App() {
         <HeroSection />
         <CoupleIntroduction />
         <WeddingEvents />
-        <WeddingTimeline />
+        {/* <WeddingTimeline /> */}
         <Gallery />
         <RSVP />
         <TravelStay />
         <Footer />
       </main>
+
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
