@@ -60,13 +60,13 @@ const TravelStay = () => {
     {
       type: "Bus Stand",
       name: "Dhenkanal Bus Stand",
-      distance: "2 mins walk from station",
+      distance: "10 mins walk from station",
       options: ["Bus to Kamakhya", "Local Transport"],
       icon: Bus,
     },
     {
       type: "Landmark",
-      name: "Sogar Chowk",
+      name: "Sogar Chowk - Mahatma Gandhi Ausodhiya Aranya SOGAR",
       distance: "Main intersection",
       options: ["Look for Billboard", "Turn Right"],
       icon: Navigation,
