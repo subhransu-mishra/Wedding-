@@ -69,9 +69,9 @@ const WeddingEvents = () => {
       id: 4,
       title: "Reception Party",
       date: "November 23, 2025",
-      time: "8:30 PM - 12:00 AM",
+      time: "8:00 PM - 12:00 AM",
       venue: "Bhubaneswar Banquet Hall",
-      address: "789 Royal Road, Mumbai",
+      address: "Khandagiri, Bhubaneswar",
       description:
         "A grand celebration with dinner, dancing, and unforgettable memories.",
       dress: "Cocktail & Party Wear",
